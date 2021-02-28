@@ -5,6 +5,7 @@
         <md-field md-outline class="md-invalid">
           <label>Type here!</label>
           <md-input v-model="text1"/>
+          <span class="md-helper-text">Helper text</span>
         </md-field>
       </div>
     </div>

@@ -146,6 +146,14 @@
       }
     }
 
+    .md-helper-text{
+      height: 20px;
+      position: absolute;
+      bottom: -22px;
+      font-size: 12px;
+      transition: .3s $md-transition-default-timing;
+    }
+
     .md-input-action {
       width: 32px;
       min-width: 32px;
