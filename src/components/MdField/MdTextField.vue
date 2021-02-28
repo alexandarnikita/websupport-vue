@@ -146,12 +146,20 @@
       }
     }
 
-    .md-helper-text{
+    .md-helper-text,
+    .md-error {
       height: 20px;
       position: absolute;
       bottom: -22px;
       font-size: 12px;
       transition: .3s $md-transition-default-timing;
+    }
+
+    .md-error {
+      display: block !important;
+      left: 0;
+      opacity: 0;
+      transform: translate3d(0, -8px, 0);
     }
 
     .md-input-action {
@@ -286,6 +294,62 @@
       &:after {
         background: bottom left repeat-x;
         background-size: 4px 1px;
+      }
+    }
+
+    &.md-invalid {
+      @keyframes md-invalid-shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+
+        30%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+
+      &.md-has-value label:not(:focus) {
+        animation: md-invalid-shake .4s $md-transition-default-timing both;
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      .md-error {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .md-helper-text {
+        opacity: 0;
+        transform: translate3d(0, -8px, 0);
+      }
+
+      &:after {
+        background-color: red;
+      }
+
+      label {
+        color: red;
+      }
+
+      .md-error {
+        color: red;
+      }
+
+      &:before,
+      &:after {
+        border-color: red;
+      }
+
+      &.md-focused {
+        &:before,
+        &:after {
+          border-color: red;
+        }
       }
     }
 

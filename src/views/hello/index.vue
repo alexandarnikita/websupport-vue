@@ -6,7 +6,15 @@
           <label>Type here!</label>
           <md-input v-model="text1"/>
           <span class="md-helper-text">Helper text</span>
+          <span class="md-error">There is an error</span>
         </md-field>
+
+        <md-field md-outline>
+          <label>Type here!</label>
+          <md-input v-model="text2"/>
+          <span class="md-helper-text">Helper text</span>
+        </md-field>
+
       </div>
     </div>
   </div>
