@@ -84,6 +84,9 @@
       right: 0;
       left: 0;
       z-index: 1;
+      transition: border .3s $md-transition-default-timing,
+                  opacity .3s $md-transition-default-timing,
+                  transform 0s .3s $md-transition-default-timing;
       will-change: border, opacity, transform;
       content: " ";
       background-color: #448aff;
@@ -105,6 +108,8 @@
       top: 23px;
       left: 0;
       pointer-events: none;
+      transition: $md-transition-stand;
+      transition-duration: .3s;
       font-size: 16px;
       line-height: 16px;
     }
@@ -117,6 +122,8 @@
       flex: 1;
       border: none;
       background: none;
+      transition: $md-transition-stand;
+      transition-property: font-size, padding-top, color;
       font-family: inherit;
       font-size: 16px;
       line-height: 24;
@@ -134,6 +141,8 @@
         font-size: 16px;
         text-shadow: none;
         -webkit-text-fill-color: initial;
+        transition: $md-transition-stand;
+        transition-property: font-size, color;
       }
     }
 
@@ -145,6 +154,7 @@
       position: absolute;
       top: 16px;
       right: 0;
+      transition: $md-transition-default;
 
       &.md-input-action-enter-active,
       &.md-input-action-leave-active {
@@ -177,6 +187,8 @@
       &:before {
         opacity: 1;
         transform: scaleX(1);
+        transition: .3s $md-transition-default-timing;
+        transition-property: border, opacity, transform;
       }
     }
 
@@ -274,6 +286,7 @@
         position: absolute;
         top: 2px;
         right: 0;
+        transform: translateX(calc(100% + 2px));
         content: "*";
         line-height: 1em;
         vertical-align: top;
