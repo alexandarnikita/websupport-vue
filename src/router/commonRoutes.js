@@ -10,7 +10,7 @@ export default [
       title: 'Hello',
       ignoreAuth: true
     },
-    component: () => import('../containers/HomeContainer.vue')
+    component: () => import('../views/hello/index.vue')
   }
 ]
 
