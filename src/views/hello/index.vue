@@ -15,6 +15,10 @@
           <span class="md-helper-text">Helper text</span>
         </md-field>
 
+        <md-field md-outline small>
+          <label>My height is 48px</label>
+          <md-input v-model="text3"/>
+        </md-field>
       </div>
     </div>
   </div>
@@ -33,7 +37,9 @@ export default {
   props: {},
   computed: {},
   data: () => ({
-    text1: null
+    text1: null,
+    text2: null,
+    text3: null
   }),
   mounted () {
   }

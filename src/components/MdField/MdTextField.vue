@@ -77,6 +77,21 @@
     position: relative;
     font-family: inherit;
 
+    &.md-small {
+      min-height: 42px !important;
+
+      input {
+        height: 26px !important;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 2px !important;
+        }
+      }
+    }
+
     &:before,
     &:after {
       position: absolute;
