@@ -30,6 +30,17 @@
           <md-input v-model="text5"/>
           <span class="md-suffix">optional</span>
         </md-field>
+
+        <md-field md-outline :theme="theme">
+          <label>Coupon</label>
+          <md-input v-model="coupon"/>
+          <button
+            class="coupon-button"
+            :class="theme"
+          >
+            <icon name="plus"/>
+          </button>
+        </md-field>
       </div>
       <div>
         <button
@@ -63,7 +74,8 @@ export default {
     text3: null,
     text4: null,
     text5: null,
-    theme: 'light'
+    theme: 'light',
+    coupon: null
   }),
   mounted () {
   },
@@ -99,5 +111,32 @@ export default {
   .button {
     margin-left: 200px;
     cursor: pointer;
+  }
+
+  .coupon-button {
+    width: 42px;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1f1f1f;
+    cursor: pointer;
+    outline: none !important;
+    border: none;
+    z-index: 2;
+
+    svg {
+      fill: white;
+      width: 20px;
+      height: 20px;
+    }
+
+    &.dark {
+      background: white;
+
+      svg {
+        fill: #1f1f1f;
+      }
+    }
   }
 </style>
