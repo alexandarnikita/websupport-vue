@@ -1,35 +1,43 @@
 <template>
-  <div class="main-frame">
+  <div class="main-frame" :class="theme">
     <div class="container">
       <div class="form-group">
-        <md-field md-outline class="md-invalid">
+        <md-field md-outline :theme="theme" class="md-invalid">
           <label>Type here!</label>
           <md-input v-model="text1"/>
           <span class="md-helper-text">Helper text</span>
           <span class="md-error">There is an error</span>
         </md-field>
 
-        <md-field md-outline>
+        <md-field md-outline :theme="theme">
           <label>Type here!</label>
           <md-input v-model="text2"/>
           <span class="md-helper-text">Helper text</span>
         </md-field>
 
-        <md-field md-outline small>
+        <md-field md-outline small :theme="theme">
           <label>My height is 48px</label>
           <md-input v-model="text3"/>
         </md-field>
 
-        <md-field md-outline>
+        <md-field md-outline :theme="theme">
           <label>Autogrow</label>
           <md-textarea v-model="text4" md-autogrow/>
         </md-field>
 
-        <md-field md-outline>
+        <md-field md-outline :theme="theme">
           <label>Optional</label>
           <md-input v-model="text5"/>
           <span class="md-suffix">optional</span>
         </md-field>
+      </div>
+      <div>
+        <button
+          @click="toggleTheme"
+          class="btn btn-danger button"
+        >
+          Toggle Theme
+        </button>
       </div>
     </div>
   </div>
@@ -54,9 +62,15 @@ export default {
     text2: null,
     text3: null,
     text4: null,
-    text5: null
+    text5: null,
+    theme: 'light'
   }),
   mounted () {
+  },
+  methods: {
+    toggleTheme () {
+      this.theme = this.theme === 'dark' ? 'light' : 'dark'
+    }
   }
 }
 
@@ -65,17 +79,25 @@ export default {
 <style lang="scss">
   .main-frame {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+
+    &.dark {
+      background: #1f1f1f;
+    }
   }
 
   .container {
     height: 100%;
     display: flex;
-    background-color: white;
     padding-top: 50px;
   }
 
   .form-group {
     width: 500px;
+  }
+
+  .button {
+    margin-left: 200px;
+    cursor: pointer;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-field" :class="[fieldClasses]" @blur="onBlur">
+  <div class="md-field" :class="[fieldClasses, theme]" @blur="onBlur">
     <slot />
   </div>
 </template>
@@ -13,7 +13,11 @@
     props: {
       mdInline: Boolean,
       mdOutline: Boolean,
-      small: Boolean
+      small: Boolean,
+      theme: {
+        type: String,
+        default: 'light'
+      }
     },
     data: () => ({
       MdField: {
@@ -92,6 +96,25 @@
       }
     }
 
+    &.dark {
+      &.md-outline{
+        &.md-focused:not(.md-invalid) {
+          &:before,
+          &:after {
+            border-color: #64dd17 !important;
+          }
+        }
+
+        label {
+          color: grey;
+        }
+
+        .md-input, .md-textarea {
+          color: aliceblue;
+        }
+      }
+    }
+
     &:before,
     &:after {
       position: absolute;
@@ -135,6 +158,21 @@
       justify-self: center;
       margin-right: 20px;
       color: grey;
+    }
+
+    .md-prefix {
+      display: none;
+      padding-right: 4px;
+      font-size: 16px;
+      line-height: 24px;
+      align-self: center;
+      justify-self: center;
+    }
+
+    &.md-focused, &.md-has-value {
+      .md-prefix {
+        display: block;
+      }
     }
 
     .md-input,
