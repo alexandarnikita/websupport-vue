@@ -128,6 +128,14 @@
       font-size: 16px;
       line-height: 16px;
     }
+    .md-suffix {
+      font-size: 16px;
+      line-height: 32px;
+      align-self: center;
+      justify-self: center;
+      margin-right: 20px;
+      color: grey;
+    }
 
     .md-input,
     .md-textarea {

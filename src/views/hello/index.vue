@@ -24,6 +24,12 @@
           <label>Autogrow</label>
           <md-textarea v-model="text4" md-autogrow/>
         </md-field>
+
+        <md-field md-outline>
+          <label>Optional</label>
+          <md-input v-model="text5"/>
+          <span class="md-suffix">optional</span>
+        </md-field>
       </div>
     </div>
   </div>
@@ -47,7 +53,8 @@ export default {
     text1: null,
     text2: null,
     text3: null,
-    text4: null
+    text4: null,
+    text5: null
   }),
   mounted () {
   }
