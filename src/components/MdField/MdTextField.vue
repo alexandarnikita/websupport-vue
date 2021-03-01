@@ -129,7 +129,8 @@
       line-height: 16px;
     }
 
-    .md-input {
+    .md-input,
+    .md-textarea {
       margin-top: 14px;
       height: $md-input-height;
       padding: 0;
@@ -159,6 +160,14 @@
         transition: $md-transition-stand;
         transition-property: font-size, color;
       }
+    }
+
+    .md-textarea {
+      min-height: 38px;
+      max-height: 230px;
+      padding: 10px 0;
+      resize: none;
+      line-height: 1.3em;
     }
 
     .md-helper-text,
@@ -199,6 +208,9 @@
   }
 
   .md-field {
+    + .md-has-textarea:not(.md-autogrow) {
+      margin-top: 36px;
+    }
 
     &.md-has-placeholder {
       label {
@@ -208,8 +220,49 @@
         font-size: 12px;
       }
 
-      .md-input {
+      .md-input,
+      .md-textarea {
         font-size: 16px;
+      }
+    }
+
+    &.md-has-textarea:not(.md-autogrow) {
+      &:before,
+      &:after {
+        height: auto;
+        pointer-events: none;
+        top: 0;
+        bottom: 0;
+        transform: none;
+        background: none !important;
+        border: 1px solid transparent;
+        border-radius: 3px;
+      }
+
+      &:before {
+        border-width: 2px;
+      }
+
+      label {
+        top: 16px;
+        left: 16px;
+      }
+
+      .md-textarea {
+        min-height: 100px;
+        padding: 0 16px;
+        resize: vertical;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 6px;
+        }
+
+        .md-textarea {
+          padding-top: 10px;
+        }
       }
     }
 
@@ -232,7 +285,8 @@
         font-size: 12px;
       }
 
-      .md-input{
+      .md-input,
+      .md-textarea {
         font-size: 16px;
       }
     }
@@ -333,6 +387,12 @@
         perspective: 1000px;
       }
 
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          border-width: 2px;
+        }
+      }
+
       .md-error {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -345,6 +405,12 @@
 
       &:after {
         background-color: red;
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          border-color: red;
+        }
       }
 
       label {

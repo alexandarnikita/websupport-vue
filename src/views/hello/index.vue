@@ -19,6 +19,11 @@
           <label>My height is 48px</label>
           <md-input v-model="text3"/>
         </md-field>
+
+        <md-field md-outline>
+          <label>Autogrow</label>
+          <md-textarea v-model="text4" md-autogrow/>
+        </md-field>
       </div>
     </div>
   </div>
@@ -27,19 +32,22 @@
 <script>
 import MdField from '../../components/MdField/MdTextField'
 import MdInput from '../../components/MdField/MdInput/MdInput'
+import MdTextarea from '../../components/MdField/MdTextarea/MdTextarea'
 
 export default {
   name: 'hello',
   components: {
     MdField,
-    MdInput
+    MdInput,
+    MdTextarea
   },
   props: {},
   computed: {},
   data: () => ({
     text1: null,
     text2: null,
-    text3: null
+    text3: null,
+    text4: null
   }),
   mounted () {
   }
