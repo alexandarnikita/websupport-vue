@@ -17,6 +17,10 @@
       theme: {
         type: String,
         default: 'light'
+      },
+      mdNoLabel: {
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({
@@ -56,7 +60,8 @@
           'md-has-placeholder': this.MdField.placeholder,
           'md-has-textarea': this.MdField.textarea,
           'md-autogrow': this.MdField.autogrow,
-          'md-small': this.small
+          'md-small': this.small,
+          'md-no-label': this.mdNoLabel
         }
       }
     },
@@ -96,6 +101,15 @@
       }
     }
 
+    &.md-no-label {
+      align-items: center;
+
+      .md-input {
+        margin-top: 0 !important;
+
+      }
+    }
+
     &.dark {
       &.md-outline{
         &.md-focused:not(.md-invalid) {
@@ -103,7 +117,13 @@
           &:after {
             border-color: #64dd17 !important;
           }
+
+          label {
+            color: #64dd17 !important;
+          }
         }
+
+
 
         label {
           color: grey;
@@ -398,6 +418,9 @@
       }
 
       &.md-focused {
+        label {
+          color: #448aff;
+        }
         &:before,
         &:after {
           border-color: #448aff;
